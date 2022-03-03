@@ -75,6 +75,33 @@ public class Question7Test {
         }
     }
 
+    @Test
+    public void test_zero_array(){
+        int[][] data = new int[0][];
+        Question7.rotate90(data);
+        {
+            Question7.rotate90(data);
+            StringBuilder sb = new StringBuilder();
+            print(data, sb);
+            String expectation2 = "";
+            Assert.assertEquals(expectation2, sb.toString());
+        }
+    }
+
+    @Test
+    public void test_single_element_array(){
+        int[][] data = new int[1][];
+        data[0] = new int[]{1};
+        Question7.rotate90(data);
+        {
+            Question7.rotate90(data);
+            StringBuilder sb = new StringBuilder();
+            print(data, sb);
+            String expectation2 = "1 \n";
+            Assert.assertEquals(expectation2, sb.toString());
+        }
+    }
+
     static void print(int[][] data, StringBuilder sb) {
         for (int i = 0; i < data.length; i++){
             for (int j = 0; j < data.length; j++) {
